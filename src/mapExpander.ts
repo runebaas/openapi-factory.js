@@ -53,7 +53,7 @@ export default class MapExpander {
       return null;
     }
 
-		let tokenMap: { [s: string]: string; } = {};
+    let tokenMap: { [s: string]: string; } = {};
     mapIteration._tokens ? mapIteration._tokens.map((token: string, index: number) => {
       tokenMap[token] = tokenList[index];
     }) : [];

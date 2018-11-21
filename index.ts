@@ -6,21 +6,21 @@ const mapExapander = new MapExapander();
 let apiFactory: ApiFactory = null;
 
 export default class ApiFactory {
-	public Authorizer: Function;
-	public requestMiddleware: Function;
-	public responseMiddleware: Function;
+  public Authorizer: Function;
+  public requestMiddleware: Function;
+  public responseMiddleware: Function;
   public errorMiddleware: Function;
-	public handlers: any;
+  public handlers: any;
   public Routes: any;
   public ProxyRoutes: any;
   public logger: any;
 
-	constructor(options: any, overrideLogger: any) {
+  constructor(options: any, overrideLogger: any) {
     apiFactory = this;
     this.Authorizer = null;
     this.requestMiddleware = options && options.requestMiddleware || ((r: any) => r);
-		this.responseMiddleware = options && options.responseMiddleware || ((_: any, r: any) => r);
-		this.errorMiddleware = options && options.errorMiddleware || ((_: any, e: any) => e);
+    this.responseMiddleware = options && options.responseMiddleware || ((_: any, r: any) => r);
+    this.errorMiddleware = options && options.errorMiddleware || ((_: any, e: any) => e);
     this.handlers = {
       onEvent() {},
       onSchedule() {}
@@ -38,11 +38,11 @@ export default class ApiFactory {
     this.setAuthorizer(authorizerFunc);
   }
 
-	public onEvent(onEventFunc: Function) {
+  public onEvent(onEventFunc: Function) {
     this.handlers.onEvent = onEventFunc;
   }
 
-	public onSchedule(onScheduleFunc: Function) {
+  public onSchedule(onScheduleFunc: Function) {
     this.handlers.onSchedule = onScheduleFunc;
   }
 
@@ -55,7 +55,7 @@ export default class ApiFactory {
   public options(route: string, p0: Function, p1: Function = null) { this.method('OPTIONS', route, p0, p1); }
   public any(route: string, p0: Function, p1: Function = null) { this.method('ANY', route, p0, p1); }
 
-	public method(verb: string, route: string, p0: Function, p1: Function = null) {
+  public method(verb: string, route: string, p0: Function, p1: Function = null) {
     let params = [p0, p1].filter(p => p);
     let handler = null;
     let options = {};
@@ -81,7 +81,7 @@ export default class ApiFactory {
   }
 
   /* This is the entry point from AWS Lambda. */
-	public async handler(event: any, context: any) {
+  public async handler(event: any, context: any) {
     if (event.path && !event.type) {
       event.queryStringParameters = event.queryStringParameters || {};
       event.stageVariables = event.stageVariables || {};
