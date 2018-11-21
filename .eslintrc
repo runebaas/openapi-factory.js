@@ -1,17 +1,14 @@
 {
-  "env": {
-    "es6": true,
-    "node": true
-  },
   "extends": [
     "cimpress-atsquad"
   ],
+  "parser": "typescript-eslint-parser",
+  "plugins": [
+    "typescript"
+  ],
   "rules": {
-    "arrow-parens": ["error", "as-needed"],
-    "indent": ["error", "tab", { "SwitchCase": 1, "MemberExpression": 0 }],
-    "node/no-unsupported-features": ["off"],
+    "node/no-unsupported-features/es-syntax": ["off"],
     "no-throw-literal": "off",
-    "spaced-comment": "off",
-    "no-unused-expressions": "off"
+    "spaced-comment": "off"
   }
 }

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2017",
+    "lib": ["es2015", "es2016", "es2017", "es2018", "dom"],
+    "outDir": "./build",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": false,
+    "newLine": "LF"
+  },
+  "typeAcquisition": {"enable": true}
+}
