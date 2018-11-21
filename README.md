@@ -1,4 +1,4 @@
-# OpenAPI Factory (Javascript)
+# OpenAPI Factory (Typescript)
 
 API as first class node library to generate clients, servers, and documentation. To simplify the creation and management of serverless cloud API, manage the server and api using the OpenAPI Factory.
 
@@ -10,8 +10,8 @@ The default headers returned unless overriden are
 * For a JSON Object: `{ 'Content-Type': 'application/links+json', 'Access-Control-Allow-Origin': '*' }`
 * For a binary Object: `{ 'Content-Type': 'application/octet-stream', 'Access-Control-Allow-Origin': '*' }`
 
-```javascript
-	const ApiFactory = require('openapi-factory');
+```typescript
+	import ApiFactory from 'openapi-factory';
 	let options = {
 		requestMiddleware(request) {
 
@@ -65,7 +65,7 @@ The default headers returned unless overriden are
 		console.log(request.path.itemId);
 		return new ApiFactory.Response({ value: 'testWithStatus' }, 200, { 'Content-Type': 'application/json'});
 	});
-	
+
 	// Example: AWS Api Gateway magic string handling for CORS and 404 fallbacks.
 	api.options('/{proxy+}', () => {
 	  	return {
